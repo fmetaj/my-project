@@ -1,0 +1,16 @@
+const { Sequelize, DataTypes } = require('sequelize');
+
+const sequelize = new Sequelize('mydb', 'root', 'Albania2026!', {
+  host: 'database-1.coraoy4mwq9z.us-east-1.rds.amazonaws.com',
+  dialect: 'mysql2'
+});
+
+const User = sequelize.define('User', {
+  name: DataTypes.STRING,
+  email: DataTypes.STRING
+});
+
+// kjo krijon tabelën automatikisht
+sequelize.sync()
+  .then(() => console.log("Database synced ✅"));
+
